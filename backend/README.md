@@ -5,12 +5,8 @@
 Esta API é uma aplicação baseada em FastAPI projetada para fornecer [descrição do propósito da API, por exemplo, funcionalidades para gerenciamento de usuários, produtos, etc.]. Este projeto demonstra como construir APIs modulares e escaláveis com FastAPI.
 
 ## Estrutura do Projeto
-<<<<<<< HEAD
-``├── dashboard
-=======
 ```
 ├── dashboard
->>>>>>> 3e7596c (update:readme)
 │ └── v1
 │ ├── routes.py
 │ └── init.py
@@ -24,12 +20,8 @@ Esta API é uma aplicação baseada em FastAPI projetada para fornecer [descriç
 └── tests
     ├── test_main.py
     └── init.py
-<<<<<<< HEAD
-    ``
-
-=======
 ```
->>>>>>> 3e7596c (update:readme)
+
 - **`dashboard/v1/routes.py`**: Define as rotas e endpoints para a funcionalidade de dashboard.
 - **`login/v1/routes.py`**: Define as rotas e endpoints para a funcionalidade de login.
 - **`main.py`**: Ponto de entrada para a aplicação FastAPI. Inclui a inclusão das rotas e inicialização da aplicação.
