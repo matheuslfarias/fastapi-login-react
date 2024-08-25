@@ -5,7 +5,12 @@
 Esta API é uma aplicação baseada em FastAPI projetada para fornecer [descrição do propósito da API, por exemplo, funcionalidades para gerenciamento de usuários, produtos, etc.]. Este projeto demonstra como construir APIs modulares e escaláveis com FastAPI.
 
 ## Estrutura do Projeto
+<<<<<<< HEAD
 ``├── dashboard
+=======
+```
+├── dashboard
+>>>>>>> 3e7596c (update:readme)
 │ └── v1
 │ ├── routes.py
 │ └── init.py
@@ -19,8 +24,12 @@ Esta API é uma aplicação baseada em FastAPI projetada para fornecer [descriç
 └── tests
     ├── test_main.py
     └── init.py
+<<<<<<< HEAD
     ``
 
+=======
+```
+>>>>>>> 3e7596c (update:readme)
 - **`dashboard/v1/routes.py`**: Define as rotas e endpoints para a funcionalidade de dashboard.
 - **`login/v1/routes.py`**: Define as rotas e endpoints para a funcionalidade de login.
 - **`main.py`**: Ponto de entrada para a aplicação FastAPI. Inclui a inclusão das rotas e inicialização da aplicação.
@@ -41,14 +50,14 @@ Certifique-se de que você tem Python 3.7 ou superior instalado. É recomendado 
    git clone https://github.com/matheuslfarias/fastapi-login-react.git
 ```
 
-2.Navegue para o diretório do projeto:
+2. Navegue para o diretório do projeto:
 
 ```sh
 
 cd repository
 ```
 
-3.Crie e ative um ambiente virtual:
+3. Crie e ative um ambiente virtual:
 
 ```sh
 
@@ -56,14 +65,14 @@ python -m venv venv
 source venv/bin/activate  # No Windows use `venv\Scripts\activate`
 ```
 
-4.Instale as dependências do projeto:
+4. Instale as dependências do projeto:
 
 ```sh
 
     pip install -r requirements.txt
 ```
 
-Desenvolvimento
+### Desenvolvimento
 
 Para iniciar o servidor FastAPI em modo de desenvolvimento com recarregamento automático, use:
 
@@ -72,7 +81,7 @@ Para iniciar o servidor FastAPI em modo de desenvolvimento com recarregamento au
 uvicorn main:app --reload
 ```
 
-Testes
+### Testes
 
 Para executar a suíte de testes, certifique-se de que está no ambiente virtual e execute:
 
@@ -80,49 +89,50 @@ Para executar a suíte de testes, certifique-se de que está no ambiente virtual
 
 pytest
 ```
-Uso
+### Uso
 
 Após iniciar o servidor, você pode acessar a documentação da API em:
 
-    Swagger UI: http://127.0.0.1:8000/docs
-    ReDoc: http://127.0.0.1:8000/redoc
+    - `Swagger UI`: [http://127.0.0.1:8000/docs]
+    - `ReDoc`: [http://127.0.0.1:8000/redoc]
 
-Endpoints
+### Endpoints
 
 Aqui estão alguns exemplos de endpoints disponíveis na API:
-Dashboard
-
-    GET /dashboard/v1/items
+- Dashboard
+```
+    - GET /dashboard/v1/items
         Descrição: Recupera uma lista de itens do dashboard.
         Resposta: 200 OK, com uma lista de itens.
 
-    POST /dashboard/v1/items
+    - POST /dashboard/v1/items
         Descrição: Adiciona um novo item ao dashboard.
         Corpo da Requisição: JSON com os detalhes do item.
         Resposta: 201 Created, com os detalhes do item criado.
-
-Login
-
-    POST /login/v1/authenticate
+```
+- Login
+```
+    - POST /login/v1/authenticate
         Descrição: Realiza a autenticação do usuário.
         Corpo da Requisição: JSON com credenciais do usuário.
         Resposta: 200 OK, com um token de autenticação.
+```
+### Contribuindo
 
-Contribuindo
+    - Faça um fork do repositório.
+    - Crie uma branch para sua feature (git checkout -b feature/feature-name).
+    - Faça suas alterações e commit (git commit -am 'Add new feature').
+    - Envie suas alterações (git push origin feature/feature-name).
+    - Crie um Pull Request para revisão.
 
-    Faça um fork do repositório.
-    Crie uma branch para sua feature (git checkout -b feature/feature-name).
-    Faça suas alterações e commit (git commit -am 'Add new feature').
-    Envie suas alterações (git push origin feature/feature-name).
-    Crie um Pull Request para revisão.
-
-Licença
+### Licença
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
 Contato
 
-Para perguntas ou problemas, entre em contato:
-
-    Autor: Matheus Farias
-    Email: matheusmlf@gmail.com
-    GitHub: https://github.com/matheuslfarias
+- Para perguntas ou problemas, entre em contato:
+```
+    - Autor: Matheus Farias
+    - Email: matheusmlf@gmail.com
+    - GitHub: https://github.com/matheuslfarias
+```
