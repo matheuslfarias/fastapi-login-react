@@ -2,8 +2,12 @@
 
 from http import HTTPStatus
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy import or_, select
+from sqlalchemy.orm import Session
 
+from login.v1.database import get_session
+from login.v1.models import User
 from login.v1.schemas import UserDB, UserList, UserPublic, UserSchema
 
 router = APIRouter()
@@ -25,7 +29,7 @@ def read_login():
 @router.post(
     '/register', status_code=HTTPStatus.CREATED, response_model=UserPublic
 )
-def create_user(user: UserSchema):
+def create_user(user: UserSchema, session: Session = Depends(get_session)):
     """
     Cria um novo usuário no sistema.
 
@@ -38,20 +42,40 @@ def create_user(user: UserSchema):
     Raises:
         HTTPException: Se houver um erro ao criar o usuário.
     """
-    user_with_id = UserDB(**user.model_dump(), id=len(database) + 1)
-    database.append(user_with_id)
-    return user_with_id
+    db_user = session.scalar(
+        select(User).where(
+            or_(User.username == user.username, User.email == user.email)
+        )
+    )
+    if db_user:
+        if db_user.username == user.username:
+            raise HTTPException(
+                status_code=HTTPStatus.CONFLICT,
+                detail='Username already registered',
+            )
+        raise HTTPException(
+            status_code=HTTPStatus.CONFLICT, detail='Email already registered'
+        )
+    db_user = User(
+        username=user.username, password=user.password, email=user.email
+    )
+    session.add(db_user)
+    session.commit()
+    return db_user
 
 
 @router.get('/users/', status_code=HTTPStatus.OK, response_model=UserList)
-def read_users():
+def read_users(
+    skip: int = 0, limit: int = 100, session: Session = Depends(get_session)
+):
     """
     Retorna a lista de todos os usuários cadastrados.
 
     Retorna:
         UserList: Uma lista contendo todos os usuários.
     """
-    return {'users': database}
+    users = session.scalars(select(User).offset(skip).limit(limit)).all()
+    return {'users': users}
 
 
 @router.post(
